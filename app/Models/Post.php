@@ -13,6 +13,6 @@ class Post extends Model
 
     public function getComments()
     {
-        $this->hasMany(Comment::class)->orderBy('created_at');
+        return $this->hasMany(Comment::class)->orderBy('created_at');
     }
 }
