@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Events\CommentCreated;
+use App\Events\ForgotPassword;
 use App\Listeners\NewCommentEmailNotification;
+use App\Listeners\SendForgoPassword;
 use App\Models\Comment;
 use App\Observers\CommentObserver;
 use Illuminate\Auth\Events\Registered;
@@ -25,6 +27,9 @@ class EventServiceProvider extends ServiceProvider
         CommentCreated::class => [
             NewCommentEmailNotification::class
         ],
+        ForgotPassword::class => [
+            SendForgoPassword::class
+        ]
     ];
 
     /**

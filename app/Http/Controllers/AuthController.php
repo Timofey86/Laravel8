@@ -76,12 +76,13 @@ class AuthController extends Controller
 
         $user = User::where(['email' => $data['email']])->first();
 
-        $password = uniqid();
+        $password = uniqid(); //12345 make string
         $user->password = bcrypt($password);
         $user->save();
 
+        \App\Events\ForgotPassword::dispatch($user->password, $user);
         //Mail::to($user)->send(new ForgotPassword($password));
-        dispatch(new ForgotUserEmailJob($user, $password));
+        //dispatch(new ForgotUserEmailJob($user, $password));
         //$this->dispatch(new ForgotUserEmailJob($user, $password));
         //ForgotUserEmailJob::dispatch($user, $password);
 
