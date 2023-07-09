@@ -10,14 +10,14 @@ final class FakerImageProvider extends Base
 {
     public function loremflick(string $dir = '', int $width = 500, int $height = 500): string
     {
-        $name = $dir . '/' . Str::random(6). '.jpg';
+        $name = /*$dir . '/' .*/ Str::random(6). '.jpg';
 
         Storage::put(
-            $name,
+            '/posts/'.$name,
             file_get_contents("https://loremflickr.com/$width/$height")
         );
 
-        return '/storage/' . $name;
+        return 'posts/'. $name;
     }
 
 }

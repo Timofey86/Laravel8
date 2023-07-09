@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'title' => $this->faker->name(),
             'description' => $this->faker->text(),
             'preview' => $this->faker->text(50),
-            'thumbnail' => $this->faker->loremflick('posts')
+            'thumbnail' => $this->faker->loremflick('/posts')
 
         ];
     }
