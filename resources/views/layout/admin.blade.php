@@ -26,11 +26,11 @@
 
 
             <nav class="mt-10">
-{{--                <a href="{{ route('admin.admin_users.index') }}"--}}
-{{--                   class="text-gray-100 flex items-center mt-4 py-2 px-6">--}}
+                <a href="{{ route('admin.admin_users.index') }}"
+                   class="text-gray-100 flex items-center mt-4 py-2 px-6">
 
-{{--                    <span class="mx-3">Пользователи</span>--}}
-{{--                </a>--}}
+                    <span class="mx-3">Пользователи</span>
+                </a>
 
                 <a href="{{ route('admin.posts.index') }}"
                    class="text-gray-100 flex items-center mt-4 py-2 px-6">
