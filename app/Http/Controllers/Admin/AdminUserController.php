@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Actions\AdminUserUpdateAction;
+use App\Helpers\Flash\Flash;
+use App\Helpers\Flash\FlashType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminUserFormRequest;
 use App\Models\AdminUser;
@@ -84,6 +86,7 @@ class AdminUserController extends Controller
         $action->handle($user,$request->validated());
        // $service->store($user, $request->validated());
 
+        Flash::add(FlashType::Success, 'Настройки сохранены!');
         return redirect(route("admin.admin_users.index"));
     }
 

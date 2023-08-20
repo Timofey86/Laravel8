@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Faker\FakerImageProvider;
+use App\View\Components\Test;
 use Faker\Factory;
 use Faker\Generator;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::component(Test::class,'testcomponent');
         //
     }
 }

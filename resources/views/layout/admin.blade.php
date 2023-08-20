@@ -25,19 +25,7 @@
             </div>
 
 
-            <nav class="mt-10">
-                <a href="{{ route('admin.admin_users.index') }}"
-                   class="text-gray-100 flex items-center mt-4 py-2 px-6">
-
-                    <span class="mx-3">Пользователи</span>
-                </a>
-
-                <a href="{{ route('admin.posts.index') }}"
-                   class="text-gray-100 flex items-center mt-4 py-2 px-6">
-
-                    <span class="mx-3">Статьи</span>
-                </a>
-            </nav>
+            <x-menu></x-menu>
         </div>
 
         <div class="flex-1 flex flex-col overflow-hidden">
@@ -60,6 +48,7 @@
                                  alt="Your avatar">
                         </button>
 
+
                         <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"
                              style="display: none;"></div>
 
@@ -71,6 +60,11 @@
                         </div>
                     </div>
                 </div>
+{{--                <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3">--}}
+{{--                    @foreach(\App\Helpers\Flash\Flash::get() as $flash)--}}
+{{--                        <x-flash-message :flash="$flash"></x-flash-message>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
             </header>
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
