@@ -80,7 +80,7 @@ class AuthController extends Controller
         $user->password = bcrypt($password);
         $user->save();
 
-        \App\Events\ForgotPassword::dispatch($user->password, $user);
+        \App\Events\ForgotPassword::dispatch($password, $user);
         //Mail::to($user)->send(new ForgotPassword($password));
         //dispatch(new ForgotUserEmailJob($user, $password));
         //$this->dispatch(new ForgotUserEmailJob($user, $password));

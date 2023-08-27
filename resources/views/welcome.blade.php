@@ -4,7 +4,7 @@
 
 @section('content')
     @include('partials.header')
-
+    <h1>{{$version}}</h1>
 {{--    <x-test :posts="$posts" count="10"></x-test><br>--}}
     <x-test2 class="my-10">
         <x-slot name="header" class="my-5">
