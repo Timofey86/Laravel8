@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class,'post');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -66,6 +72,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+//        $this->authorize('update-post', $post);
         return view("admin.posts.create", [
             "post" => $post,
         ]);
@@ -94,12 +101,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Post  $post
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        Post::destroy($id);
+        $post->delete();
         return redirect(route('admin.posts.index'));
     }
 }

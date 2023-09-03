@@ -9,6 +9,7 @@ use App\Helpers\Flash\FlashType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminUserFormRequest;
 use App\Models\AdminUser;
+use App\Models\Role;
 use App\Services\AdminUserService;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -39,7 +40,9 @@ class AdminUserController extends Controller
      */
     public function create(): View|Application|Factory
     {
-        return view("admin.admin_users.create");
+        return view("admin.admin_users.create",[
+            'roles' => Role::all(),
+        ]);
     }
 
     /**
@@ -52,7 +55,8 @@ class AdminUserController extends Controller
     {
         $data = $request->validated();
 
-        AdminUser::create($data);
+        $user = AdminUser::create($data);
+        $user->roles()->sync($data['roles'] ?? []);
 
         return redirect(route("admin.admin_users.index"));
     }

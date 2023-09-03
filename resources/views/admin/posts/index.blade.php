@@ -38,10 +38,9 @@
                                     {{ $post->title }}
                                 </x-table.td>
                                 <x-table.td class="text-right">
-{{--                                    @canany(['update', 'delete'], $post)--}}
+                                    @canany(['update', 'delete'], $post)
                                         <a href="{{ route("admin.posts.edit", $post->id) }}"
                                            class="text-indigo-600 hover:text-indigo-900">Редактировать</a>
-
                                         <form action="{{ route("admin.posts.destroy", $post->id) }}" method="POST">
                                             @csrf
 
@@ -51,7 +50,7 @@
                                             class="text-red-600 deletePostBtn hover:text-red-900">Удалить
                                             </button>
                                         </form>
-{{--                                    @endcan--}}
+                                    @endcan
                                 </x-table.td>
                             </x-table.tr>
                         @endforeach

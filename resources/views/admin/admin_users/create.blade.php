@@ -38,6 +38,10 @@
                 @error('password')
                 <p class="text-red-500">{{ $message }}</p>
                 @enderror
+                <p>Роли</p>
+
+                Admin<input type="checkbox" placeholder="admin"><br>
+                Manager<input type="checkbox" placeholder="manager">
 
                 <button type="submit" class="text-center w-full bg-blue-900 rounded-md text-white py-3 font-medium">Сохранить</button>
             </form>
