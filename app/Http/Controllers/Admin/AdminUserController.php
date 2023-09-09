@@ -29,7 +29,7 @@ class AdminUserController extends Controller
     public function index(TestService $service, MessengerNotificationInterface $messengerNotification): View|Factory|Application
     {
 //        dd($messengerNotification);
-        $service->test();
+//        $service->test();
         $users = AdminUser::orderBy("created_at", "DESC")->paginate(3);
 
         return view("admin.admin_users.index", [
