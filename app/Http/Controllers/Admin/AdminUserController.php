@@ -11,6 +11,8 @@ use App\Http\Requests\Admin\AdminUserFormRequest;
 use App\Models\AdminUser;
 use App\Models\Role;
 use App\Services\AdminUserService;
+use App\Services\TestService;
+use App\Utilities\MessengerNotificationInterface;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -24,8 +26,10 @@ class AdminUserController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index(): View|Factory|Application
+    public function index(TestService $service, MessengerNotificationInterface $messengerNotification): View|Factory|Application
     {
+//        dd($messengerNotification);
+        $service->test();
         $users = AdminUser::orderBy("created_at", "DESC")->paginate(3);
 
         return view("admin.admin_users.index", [

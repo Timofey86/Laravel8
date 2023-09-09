@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use App\Faker\FakerImageProvider;
+use App\Notifications\TelegramNotificator;
+use App\Services\TestService;
+use App\Utilities\MessengerNotificationInterface;
 use App\View\Components\Test;
 use Faker\Factory;
 use Faker\Generator;
@@ -23,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
             $faker->addProvider(new FakerImageProvider($faker));
             return $faker;
         });
+        $this->app->bind(TestService::class, function (){
+            return new TestService(true);
+        });
+        $this->app->bind(MessengerNotificationInterface::class,TelegramNotificator::class);
     }
 
     /**
