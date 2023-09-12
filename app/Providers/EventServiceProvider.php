@@ -7,7 +7,9 @@ use App\Events\ForgotPassword;
 use App\Listeners\NewCommentEmailNotification;
 use App\Listeners\SendForgoPassword;
 use App\Models\Comment;
+use App\Models\Version;
 use App\Observers\CommentObserver;
+use App\Observers\VersionObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -40,5 +42,6 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         Comment::observe(new CommentObserver());
+        Version::observe(VersionObserver::class);
     }
 }

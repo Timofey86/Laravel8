@@ -9,6 +9,7 @@ use App\Utilities\MessengerNotificationInterface;
 use App\View\Components\Test;
 use Faker\Factory;
 use Faker\Generator;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -41,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::component(Test::class,'testcomponent');
 //        \Illuminate\Support\Facades\View::share('version', 2);
-        //
+//        JsonResource::withoutWrapping(); //еслу не нужна обертка для ответа по апи
+//        JsonResource::wrap('chepukabra'); // global wrap name
     }
 }
