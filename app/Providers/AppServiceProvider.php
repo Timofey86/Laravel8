@@ -40,6 +40,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::directive('helloWorld', function ($name){
+            return 'Hello Workd!!!!!! ' . $name;
+        });
+
+        Blade::if('mailmailer', function ($val){
+            return env('MAIL_MAILER') === $val;
+        });
         Blade::component(Test::class,'testcomponent');
 //        \Illuminate\Support\Facades\View::share('version', 2);
 //        JsonResource::withoutWrapping(); //еслу не нужна обертка для ответа по апи

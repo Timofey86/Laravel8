@@ -6,6 +6,9 @@
     @include('partials.header')
     <h1>{{$version}}</h1>
 {{--    <x-test :posts="$posts" count="10"></x-test><br>--}}
+    @mailmailer('smtp')
+    @helloWorld(Timofey)
+    @endmailmailer
     <x-test2 class="my-10">
         <x-slot name="header" class="my-5">
                 Im Header
