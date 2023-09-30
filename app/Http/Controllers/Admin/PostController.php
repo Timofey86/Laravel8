@@ -2,6 +2,7 @@
 
 namespace app\Http\Controllers\Admin;
 
+use App\DTO\PostForm;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostFormRequest;
 use App\Models\Post;
@@ -93,6 +94,8 @@ class PostController extends Controller
             $data['thumbnail'] = $thumbnail;
             //dd($data);
         }
+//        $data = PostForm::formRequest($request);
+
         $post->update($data);
 
         return redirect(route("admin.posts.index"));
